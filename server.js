@@ -6,7 +6,7 @@ const User = require('./models/user')
 const passport = require('passport')
 const keys = require('./config/keys')
 const cookieSession = require('cookie-session')
-const port = 3000;
+const port = process.env.port || 3000;
 
 mongoose.connect(process.env.DATABASEURL, {
   useNewUrlParser : true,
@@ -17,7 +17,7 @@ mongoose.connect(process.env.DATABASEURL, {
   console.log('eroor', err.message);
 })
 
-console.log(process.env.DATABASEURL)
+// console.log(process.env.DATABASEURL)
 
 app.use(cookieSession({
   maxAge : 24 * 60 * 60 * 1000,
@@ -40,5 +40,3 @@ const postRoutes = require('./routes/post-routes')
 app.use('/auth', authRoutes)
 app.use('/', getRoutes)
 app.use('/', postRoutes)
-
-// 'mongodb+srv://ishita:3Xe@!zaNV!MYdw6@cluster0-7yiz5.mongodb.net/sarc-portal?retryWrites=true&w=majority'
