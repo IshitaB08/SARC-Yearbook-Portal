@@ -39,10 +39,35 @@
             <h3><%= msg %></h3>
         <% } %>
         <form class="card" action="/nominate/<%= id %>" method="POST">
-            <label for="caption">BITS ID:</label>
+            <label for="caption" id="bitsmail">BITS ID:</label>
             <input class="form-styling" type="text" placeholder="2017B4A80844P" name="user[nominee]">
             <input type="submit" class="btn" value="Nominate">
         </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+          $("form").on("submit", e => {
+            e.preventDefault();
+    
+            const email = $("#bitsmail").val().trim();
+            const subject = 'nominated';
+            const text = 'yearbook portal';
+    
+            const data = {
+              email,
+              subject,
+              text
+            };
+    
+            $.post("/email", data)
+              .then(() => {
+                window.location.href = "/email/sent";
+              })
+              .catch(() => {
+                window.location.href = "/error";
+              });
+          });
+        </script>
     </section>
 
     <footer>

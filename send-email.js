@@ -1,22 +1,18 @@
-const nodemailer = require('nodemailer');
-const transport = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'thismytesting@gmail.com',
-        pass: 'regainwealth',
-    },
-});
-const mailOptions = {
-    from: 'thismytesting@gmail.com',
-    to: 'f20190350@pilani.bits-pilani.ac.in',
-    subject: 'hello world!',
-    text: 'hello world!',
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const msg = (email, subject, text) => {
+  const mail = {
+  to: email,
+  from: 'f20180306@pilani.bits-pilani.ac.in',
+  subject: subject,
+  text: text
+  // html: '<strong>and easy to do anywhere, even with Node.js</strong>'
+}
 };
 
-transport.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-});
+sgMail.send(msg).then(() => {
+  console.log('Message sent')
+}).catch((error) => {
+  console.log(error.response.body)
+  // console.log(error.response.body.errors[0].message)
+})
