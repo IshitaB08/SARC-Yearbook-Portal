@@ -25,7 +25,7 @@
         </ul>
     </div>
 
-    <div class="hamburger">
+    <div class="hamburger" onclick="toggle()">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>
@@ -60,10 +60,10 @@
         <div class="card">
             <div class="profile-photo">
                 <div class="container" id="glitch">
-                <img src="<%= user.imageUrl %>"     class="main">
-                <div class="overlay" class="main"></div>
-                <div class="button" class="main" id='photo-button'><a href="#" class="main">Upload Photo</a></div>
-            </div>
+                    <img src="<%= user.imageUrl %>" class="main">
+                    <div class="overlay" class="main"></div>
+                    <div class="button" class="main" id='photo-button'><a href="#" class="main">Upload Photo</a></div>
+                </div>
             </div>
             <div class="profile">
                 <p class="name"><b>Name: </b><%= user.name %></p>
