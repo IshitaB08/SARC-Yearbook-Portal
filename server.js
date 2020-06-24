@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
@@ -6,6 +5,8 @@ var mongoose = require('mongoose')
 const User = require('./models/user')
 const passport = require('passport')
 const keys = require('./config/keys')
+const cookieParser = require('cookie-parser')
+const flash = require('connect-flash')
 const cookieSession = require('cookie-session')
 const port = process.env.PORT || 3000;
 
@@ -18,7 +19,14 @@ mongoose.connect(process.env.DATABASEURL, {
   console.log('eroor', err.message);
 })
 
-// console.log(process.env.DATABASEURL)
+app.use(cookieParser())
+app.use(cookieSession(({
+  secret : keys.session.cookieKey,
+  cookie : {maxAge : 60000},
+  resave : false,
+  saveUninitialized : false
+})))
+app.use(flash())
 
 app.use(cookieSession({
   maxAge : 24 * 60 * 60 * 1000,
