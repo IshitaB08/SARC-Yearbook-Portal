@@ -8,6 +8,6 @@ module.exports = {
     },
     email: {
     user: process.env.user,
-    password: process.env.user
+    password: process.env.password
     }
 }
