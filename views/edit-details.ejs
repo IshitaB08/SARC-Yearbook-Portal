@@ -30,8 +30,10 @@
             <div class="line"></div>
         </div>
     
-        </nav>
-
+    </nav>
+    <% if (typeof msg!=="undefined") { %>
+        <div class="success-msg"><%= msg %></div>
+    <% } %>
     <section class="landing">
         <h1>Edit Profile</h1>
         <form class="card" action="/edit/<%= id %>" method="POST">
@@ -42,7 +44,7 @@
             <label for="caption" id="quote">Yearbook Quote:</label>
             <input class="form-styling" type="text" placeholder="Your quote" name="user[quote]">
             <input type="submit" class="btn">
-        </form>
+        </form>    
     </section>
 
     <footer>
@@ -55,5 +57,6 @@
         <a href="/<%= id %>/developers"><button id="devs">Developers</button></a>
     </footer>
     <script src="/assets/scipts/app.js"></script>
+    <script src="/assets/scipts/new.js"></script>
 </body>
 </html>
