@@ -70,7 +70,7 @@ router.post('/nominate/:id', async (req, res) => {
           from : keys.email.user,
           to : email,
           subject : 'Online Yearbook',
-          text : "You've been nominated to write a caption! Login at <> to know more."
+          text : "You've been nominated to write a caption! Login at https://intense-island-69502.herokuapp.com/ to know more."
         }
         transporter.sendMail(mailOptions, (err, data) => {
           if(err) {
