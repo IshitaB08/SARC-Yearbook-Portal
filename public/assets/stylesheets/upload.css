@@ -7,7 +7,6 @@
 .success-msg,
 .warning-msg,
 .error-msg {
-  margin: 10px 0;
   padding: 10px;
   border-radius: 3px 3px 3px 3px;
 }
@@ -196,14 +195,14 @@ label {
 	box-shadow: 0 13px 26px rgba(#000, 0.16), 0 3px 6px rgba(#000, 0.16);
 }
 
-.inputfile {
+/* .inputfile {
 	width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
-}
+} */
 
 .inputfile + label {
 	font-family: 'Open Sans';

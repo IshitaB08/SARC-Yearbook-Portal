@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;300&family=Open+Sans:wght@300&display=swap');
 
 /* General boilerplate code for resetting borders and margins */
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+}
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+.error-msg {
+  color: #D8000C;
+  background-color: #FFBABA;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -68,7 +85,6 @@ nav {
 	font-size: 1.1rem;
 }
 /*CSS for Navigation Bar ends */
-
 /* CSS for the modal */
 .close {
 	position: absolute;
