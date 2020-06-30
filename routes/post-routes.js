@@ -73,19 +73,19 @@ router.post('/nominate/:id', async (req, res) => {
           from : keys.email.user,
           to : email,
           subject : 'Online Yearbook',
-          text : "You've been nominated to write a caption! Login at <> to know more."
+          text : "You've been nominated to write a caption! Login at https://intense-island-69502.herokuapp.com/ to know more."
         }
         transporter.sendMail(mailOptions, (err, data) => {
           if(err) {
             console.log(err)
           }
           else {
-            res.render('nominate', {id : id, success : 'User nominated successfully!'})
+            res.render('nominate', {id : id, success : 'Friend nominated successfully!'})
           }
       })
     }}
     else {
-        res.render('nominate', {id : id, error : 'This user does not exist! Enter a different ID.'})
+        res.render('nominate', {id : id, error : 'This user does not exist! Ask them to sign in first or enter a different ID.'})
       }
     })
 
@@ -167,7 +167,7 @@ router.post('/:id/search', async (req, res) => {
   if (user) res.redirect('/' + id + '/search/' + bitsid)
   else {
     let user = await User.findById(id) 
-    res.render('profile', {user : user, msg : 'User not found!'})
+    res.render('profile', {user : user, msg : 'Friend not found!'})
   }})
   
 module.exports = router
