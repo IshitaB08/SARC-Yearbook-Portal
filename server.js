@@ -28,6 +28,7 @@ app.use(cookieSession(({
   resave : false,
   saveUninitialized : false
 })))
+
 app.use(flash())
 
 app.use(cookieSession({
@@ -51,3 +52,4 @@ const postRoutes = require('./routes/post-routes')
 app.use('/auth', authRoutes)
 app.use('/', getRoutes)
 app.use('/', postRoutes)
+
