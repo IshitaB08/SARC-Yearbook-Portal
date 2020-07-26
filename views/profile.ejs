@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
     <link rel="stylesheet" href="/assets/stylesheets/profile.css">
 </head>
 
@@ -16,7 +17,7 @@
         </form>
     </div>
 
-    <div class="links">
+    <div class="links" id="nav-links">
         <ul class="nav-links">
             <li><a href="/profile/<%= user._id %>/edit">Edit Profile</a></li>
             <li><a href="/<%= user._id %>/nominate">Nominate a Friend</a></li>
@@ -25,10 +26,10 @@
         </ul>
     </div>
 
-    <div class="hamburger" id="toggle-button">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+    <div class="button_container" id="toggle" onclick="toggle()">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
     </div>
 
     </nav>
@@ -36,15 +37,13 @@
         <div class="error-msg"><%=msg%></div>
     <% } %>
     <section class="landing">
-        <% if(!user.bitsId) { %>
+        <% if(!user.quote) { %>
         <div class="mask" role="dialog" id="modal-mask"></div>
         <div class="modal" role="alert" id="modal-main">
             <span class="close" id="close-modal">X</span>
             <form class="modal-form" action="/addid/<%= user.id %>" method="POST">
-                <label for="caption">Enter your BITS ID:</label>
-                <input class="form-styling" type="text" placeholder="2017B4A80844P" name="user[bitsid]">
                 <label for="caption" id="quote-label">Enter your yearbook quote:</label>
-                <input class="form-styling" role="textbox" contenteditable="true" placeholder="Your quote" name="user[quote]"></span>
+                <input class="form-styling" role="textbox" contenteditable="true" placeholder="Your quote" name="user[quote]" maxlength="160"></span>
                 <input type="submit" class="btn">
             </form>
         </div>
@@ -91,7 +90,6 @@
     </footer>
 
     <script src="/assets/scipts/app.js"></script>
-    <script src="/assets/scipts/profile.js"></script>
     <script src="/assets/scipts/new.js"></script>
 </body>
 </html>

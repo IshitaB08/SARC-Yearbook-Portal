@@ -5,6 +5,7 @@ const multer = require('multer')
 const path = require('path');
 const transporter = require('../config/mail')
 const keys = require('../config/keys')
+const users = require('../users')
 const storage = multer.diskStorage({
   destination : './public/assets/images/uploads/',
   filename : function(req, file, cb) {
@@ -16,31 +17,10 @@ const upload = multer({
   storage : storage
 }).single('profileImage')
 
-router.post('/profile', (req, res) => {
-    const id = req.body.id;
-    const name = req.body.name;
-    const imageUrl = req.body.imageUrl;
-    const email = req.body.email;
-    const user = new User({
-      name : name,
-      imageUrl : imageUrl,
-      email : email
-    });
-    User.countDocuments({email : email}).then((count) => {
-      if (count<1) {
-        user.save().then(() => {
-        }).catch((error) => {
-          console.log('Error!')
-        });
-      }
-    })
-})
-  
 router.post('/addid/:id', async (req, res) => {
     let _id = req.params.id
-    let bitsid = req.body.user.bitsid
     let quote = req.body.user.quote
-    await User.findByIdAndUpdate(_id, {bitsId : bitsid, quote : quote})
+    await User.findByIdAndUpdate(_id, {quote : quote})
     res.redirect('/profile/' + req.params.id)
   })
   
@@ -58,6 +38,9 @@ router.post('/nominate/:id', async (req, res) => {
       if (user2.nominatedby.some(e => e.id === nominatorid)) {
         return res.render('nominate', {id : id, success : 'User has already been nominated!'})
       }
+      if (user2.captions.length>5) {
+        return res.render('nominate', {id : id, error : 'User already has 5 captions on his profile!'})
+      }
       else {
         const email = user2.email
         await user2.updateOne({
@@ -73,19 +56,19 @@ router.post('/nominate/:id', async (req, res) => {
           from : keys.email.user,
           to : email,
           subject : 'Online Yearbook',
-          text : "You've been nominated to write a caption! Login at https://intense-island-69502.herokuapp.com/ to know more."
+          text : "You've been nominated to write a caption! Login at <> to know more."
         }
         transporter.sendMail(mailOptions, (err, data) => {
           if(err) {
             console.log(err)
           }
           else {
-            res.render('nominate', {id : id, success : 'Friend nominated successfully!'})
+            res.render('nominate', {id : id, success : 'User nominated successfully!'})
           }
       })
     }}
     else {
-        res.render('nominate', {id : id, error : 'This user does not exist! Ask them to sign in first or enter a different ID.'})
+        res.render('nominate', {id : id, error : 'This user does not exist! Enter a different ID.'})
       }
     })
 
@@ -167,7 +150,7 @@ router.post('/:id/search', async (req, res) => {
   if (user) res.redirect('/' + id + '/search/' + bitsid)
   else {
     let user = await User.findById(id) 
-    res.render('profile', {user : user, msg : 'Friend not found!'})
+    res.render('profile', {user : user, msg : 'User not found!'})
   }})
   
 module.exports = router

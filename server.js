@@ -28,7 +28,6 @@ app.use(cookieSession(({
   resave : false,
   saveUninitialized : false
 })))
-
 app.use(flash())
 
 app.use(cookieSession({

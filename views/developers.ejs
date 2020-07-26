@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
     <link rel="stylesheet" href="/assets/stylesheets/developers.css">
 </head>
 
@@ -16,7 +17,7 @@
             </form>
         </div>
 
-    <div class="links">
+    <div class="links" id="nav-links">
         <ul class="nav-links">
                 <li><a href="/profile/<%= id %>">Profile</a></li>
                 <li><a href="/<%= id %>/nominate">Nominate a Friend</a></li>
@@ -25,10 +26,10 @@
         </ul>
     </div>
 
-    <div class="hamburger" onclick="toggle()">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+    <div class="button_container" id="toggle" onclick="toggle()">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
     </div>
 
     </nav>
