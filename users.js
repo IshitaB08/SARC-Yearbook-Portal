@@ -52,6 +52,42 @@ module.exports = [
       "id": "2019B1PS1026P"
     },
     {
+      "email": "f20190359@pilani.bits-pilani.ac.in",
+      "id": "2019A8PS0359P"
+    },
+    {
+      "email": "f20190637@pilani.bits-pilani.ac.in",
+      "id": "2019ABPS0637P"
+    },
+    {
+      "email": "f20190190@pilani.bits-pilani.ac.in",
+      "id": "2019A3PS0190P"
+    },
+    {
+      "email": "f20191052@pilani.bits-pilani.ac.in",
+      "id": "2019A2PS1052P"
+    },
+    {
+      "email": "f20190046@pilani.bits-pilani.ac.in",
+      "id": "2019A7PS0046P"
+    },
+    {
+      "email": "f20190307@pilani.bits-pilani.ac.in",
+      "id": "2019B2PS0307P"
+    },
+    {
+      "email": "f20190837@pilani.bits-pilani.ac.in",
+      "id": "2019ABPS0837P"
+    },
+    {
+      "email": "f20191007@pilani.bits-pilani.ac.in",
+      "id": "2019A7PS1007P"
+    },
+    {
+      "email": "f201901490@pilani.bits-pilani.ac.in",
+      "id": "2019A3PS0149P"
+    },
+    {
       "email": "f2016319@pilani.bits-pilani.ac.in",
       "id": "2016A1PS0319P"
     },
