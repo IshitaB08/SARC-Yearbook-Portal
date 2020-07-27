@@ -72,16 +72,12 @@ module.exports = [
       "id": "2019A7PS0046P"
     },
     {
-      "email": "f20180179@pilani.bits-pilani.ac.in",
-      "id": "2018A7PS0179P"
-    },
-    {
       "email": "f20180222@pilani.bits-pilani.ac.in",
       "id": "2018A7PS0222P"
     },
     {
-      "email": "f20190761@pilani.bits-pilani.ac.in",
-      "id": "2019B2PS0761P"
+      "email": "f20190307@pilani.bits-pilani.ac.in",
+      "id": "2019B2PS0307P"
     },
     {
       "email": "f20190837@pilani.bits-pilani.ac.in",

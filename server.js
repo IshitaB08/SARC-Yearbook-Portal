@@ -14,7 +14,9 @@ const port = process.env.PORT || 3000;
 
 mongoose.connect(process.env.DATABASEURL, {
   useNewUrlParser : true,
-  useCreateIndex : true
+  useCreateIndex : true,
+  useUnifiedTopology : true,
+  useFindAndModify : false
 }).then (() => {
   console.log('connectde')
 }).catch(err => {
@@ -37,7 +39,6 @@ app.use(cookieSession({
 
 app.use(passport.initialize())
 app.use(passport.session())
-
 
 app.use(express.static('public'));
 app.listen(port, () => console.log('Listening at port ' + port));
