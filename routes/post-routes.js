@@ -70,7 +70,7 @@ router.post('/nominate/:id', async (req, res) => {
           from : keys.email.user,
           to : email,
           subject : 'Online Yearbook Portal',
-          html : '<h4>You have been nominated by a friend to write a caption! Login at yearbook.bits-sarc.org and check it out under the notifications tab.<br>Team SARC</h4>'
+          html : '<p>You have been nominated by a friend to write a caption! Login at yearbook.bits-sarc.org and check it out under the notifications tab.<br><br>Team SARC</p>'
         }
         transporter.sendMail(mailOptions, (err, data) => {
           if(err) {

@@ -4,6 +4,10 @@ module.exports = [
       "id": "2016A1PS0240P"
     },
     {
+      "email": "bhowmicksoham2001@gmail.com",
+      "id": "2019A8PS0351P"
+    },
+    {
       "email": "f20180306@pilani.bits-pilani.ac.in",
       "id": "2018B5A10306P"
     },
